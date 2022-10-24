@@ -1,4 +1,4 @@
-use gtk::prelude::*;
+use gtk::{prelude::*, Button};
 use gtk::{Application, ApplicationWindow};
 
 fn main() {
@@ -12,9 +12,14 @@ fn main() {
 }
 
 fn build_ui(app: &Application) {
+    let button = Button::builder().label("Press me!").build();
+
+    button.connect_clicked(move |button| button.set_label("Hello World!"));
+
     let window = ApplicationWindow::builder()
         .application(app)
         .title("My GTK App")
+        .child(&button)
         .build();
 
     window.present();
