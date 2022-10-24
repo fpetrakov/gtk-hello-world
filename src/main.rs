@@ -12,7 +12,13 @@ fn main() {
 }
 
 fn build_ui(app: &Application) {
-    let button = Button::builder().label("Press me!").build();
+    let button = Button::builder()
+        .label("Press me!")
+        .margin_bottom(12)
+        .margin_top(12)
+        .margin_start(12)
+        .margin_end(12)
+        .build();
 
     button.connect_clicked(move |button| button.set_label("Hello World!"));
 
